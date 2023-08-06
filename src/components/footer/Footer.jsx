@@ -1,8 +1,13 @@
-import React from 'react'
-import { FooterBtn, FooterContainer } from './Footer.style';
+import React from "react";
+import { FooterBtn, FooterContainer } from "./Footer.style";
 import { lightIcon, darkIcon } from "../../helper/iconData";
+import { useState } from "react";
 
-const Footer = ({myTheme,setMyTheme}) => {
+
+
+
+const Footer = () => {
+  const [myTheme, setMyTheme] = useState("")
 
   const handleClick = () => {
     if (myTheme === "light") {
@@ -10,15 +15,15 @@ const Footer = ({myTheme,setMyTheme}) => {
     } else {
       setMyTheme("light");
     }
-  };//!myTheme ya göre güncelleme yapacak kullanıcı tıkladıkça toggle mantığı kurmuş olduk
+  }; //!myTheme ya göre güncelleme yapacak kullanıcı tıkladıkça toggle mantığı kurmuş olduk
 
   return (
     <FooterContainer>
       <FooterBtn onClick={handleClick} title="Switch theme">
-        {myTheme === "light" ? <>{lightIcon}</> : <>{ darkIcon }</>}
+        {myTheme === "light" ? <>{lightIcon}</> : <>{darkIcon}</>}
       </FooterBtn>
     </FooterContainer>
   );
-}
+};
 
-export default Footer
+export default Footer;
