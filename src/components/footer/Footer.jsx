@@ -1,14 +1,13 @@
 import React from "react";
 import { FooterBtn, FooterContainer } from "./Footer.style";
 import { lightIcon, darkIcon } from "../../helper/iconData";
-import { useState } from "react";
 
 
 
 
-const Footer = () => {
 
-  const [myTheme, setMyTheme] = useState("dark")
+const Footer = ({myTheme,setMyTheme}) => {
+
   const handleClick = () => {
     if (myTheme === "light") {
       setMyTheme("dark");

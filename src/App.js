@@ -1,7 +1,8 @@
 import { ThemeProvider } from 'styled-components';
 import AppRouter from './router/AppRouter';
 import { darktheme,lightheme } from './styles/theme';
-import { GlobalStyle } from './styles/Global.styles';
+// import { GlobalStyle } from './styles/Global.styles';
+import { useEffect, useState } from 'react';
 
 function App() {
 const [myTheme, setMyTheme] = useState(
@@ -19,7 +20,7 @@ useEffect(() => {
   return (
     <div className="App">
       <ThemeProvider  theme={themes}> 
-      <GlobalStyle/>
+      {/* <GlobalStyle/> */}
       <AppRouter myTheme={myTheme} setMyTheme={setMyTheme} />
       </ThemeProvider>
     </div>
