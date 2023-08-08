@@ -7,8 +7,8 @@ import { useState } from "react";
 
 
 const Footer = () => {
-  const [myTheme, setMyTheme] = useState("")
 
+  const [myTheme, setMyTheme] = useState("dark")
   const handleClick = () => {
     if (myTheme === "light") {
       setMyTheme("dark");
