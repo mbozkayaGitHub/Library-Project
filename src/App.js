@@ -1,14 +1,26 @@
 import { ThemeProvider } from 'styled-components';
 import AppRouter from './router/AppRouter';
-import { theme } from './styles/theme';
+import { darktheme,lightheme } from './styles/theme';
 import { GlobalStyle } from './styles/Global.styles';
 
 function App() {
+const [myTheme, setMyTheme] = useState(
+  sessionStorage.getItem("theme") || "light"
+)
+const [themes, setThemes] = useState(lightheme)
+
+
+useEffect(() => {
+  sessionStorage.setItem("theme", myTheme);
+  setThemes(myTheme === "light" ? lightheme : darktheme);
+}, [myTheme])
+
+
   return (
     <div className="App">
-      <ThemeProvider  theme={theme}> 
+      <ThemeProvider  theme={themes}> 
       <GlobalStyle/>
-      <AppRouter/>
+      <AppRouter myTheme={myTheme} setMyTheme={setMyTheme} />
       </ThemeProvider>
     </div>
   );
